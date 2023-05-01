@@ -16,11 +16,11 @@ pipeline{
         stage('create docker container'){
             steps{
                 script{
-                    withCredentials([file(credentialsId: '', variable: 'dockerhub')]) {
-                        sh 'docker login -u abbasmarolix -p ${dockerhub}'
+                    withCredentials([string(credentialsId: 'e39c6aee-4e98-4db1-9be4-37ce0520e5c5', variable: 'sohail')]) {
+                        sh 'docker login -u mirza57865 -p ${dockerhub}'
                     }
-                       sh 'docker tag images:2.0 sohail57865/nodejs:2.0'
-                       sh 'docker push sohail57865/nodejs:2.0'
+                       sh 'docker tag images:2.0 mirza57865/nodejs:2.0'
+                       sh 'docker push mirza57865/nodejs:2.0'
                        sh 'docker container run -d -p 3000:3000 images:2.0 npm run start'
                 }
             }
