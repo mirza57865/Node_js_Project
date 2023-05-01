@@ -34,7 +34,7 @@ pipeline{
         stage('create docker container'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'e39c6aee-4e98-4db1-9be4-37ce0520e5c5', variable: 'abbas')]) {
+                    withCredentials([string(credentialsId: 'e39c6aee-4e98-4db1-9be4-37ce0520e5c5', variable: 'dockerhub')]) {
                         sh 'docker login -u sohail57865 -p ${sohail}'
                     }
                        sh 'docker tag images:2.0 sohail57865/nodejs:2.0'
