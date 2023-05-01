@@ -19,8 +19,8 @@ pipeline{
                     withCredentials([file(credentialsId: '', variable: 'dockerhub')]) {
                         sh 'docker login -u abbasmarolix -p ${dockerhub}'
                     }
-                       sh 'docker tag images:2.0 abbasmarolix/nodejs:2.0'
-                       sh 'docker push abbasmarolix/nodejs:2.0'
+                       sh 'docker tag images:2.0 sohail57865/nodejs:2.0'
+                       sh 'docker push sohail57865/nodejs:2.0'
                        sh 'docker container run -d -p 3000:3000 images:2.0 npm run start'
                 }
             }
